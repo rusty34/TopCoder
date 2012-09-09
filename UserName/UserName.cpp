@@ -1,9 +1,11 @@
 #include <vector>
+#include <set>
 #include <algorithm>
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -40,6 +42,7 @@ username finally assigned to the new member.
 */
 
 string newMember(vs existingNames, string newName);
+string newMemberTwo(vs existingNames, string newName);
 
 int main(int argc, char** argv)
 {
@@ -69,11 +72,33 @@ int main(int argc, char** argv)
 
 	cout << "New User Query: " << userName << "\n";
 
-	string newUserName = newMember(memberNames, userName);
+	string newUserName = newMemberTwo(memberNames, userName);
 
 	cout << "New Username: " << newUserName << "\n";
 
 	return 0;
+}
+
+string newMemberTwo(vs existingNames, string newName)
+{
+	set<string> names(existingNames.begin(), existingNames.end());
+
+	if(names.count(newName) == 0 )
+		return newName;
+
+	char testName[1024];
+	int currentInt = 1;
+
+	while(1)
+	{
+
+		sprintf(testName, "%s%d", newName.c_str(), currentInt);
+
+		if(names.count(testName) == 0)
+			return testName;
+		else
+			currentInt++;
+	}
 }
 
 string newMember(vs existingNames, string newName)
