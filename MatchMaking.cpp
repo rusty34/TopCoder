@@ -97,7 +97,7 @@ int main(int argc, char** argv)
 	vs namesMen(mArray, mArray + ARRAY_SIZE(mArray));
 	vs answersMen(mAnswers, mAnswers + ARRAY_SIZE(mAnswers));
 
-	cout << "Query Woman: " << testName << "\n";
+	cout << "Query Woman: " << testNameTwo << "\n";
 	string answer = makeMatch(namesWomen, answersWomen, namesMen, answersMen, testNameTwo);
 	cout << "Answer: " << answer << "\n";
 
